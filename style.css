@@ -1,0 +1,21 @@
+.btn {
+  margin: 50vh;
+  justify-content: center;
+  display: flex;
+}
+.btnStart {
+  margin-left: 20px;
+}
+.btnPause {
+  margin-left: 20px;
+}
+.btnClear {
+  margin-left: 20px;
+}
+
+.btnAll {
+  width: 70px;
+  height: 70px;
+  border-radius: 15px;
+  cursor: pointer;
+}

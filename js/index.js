@@ -24,7 +24,8 @@ startBtn.addEventListener("click", () => {
   timerColor = setInterval(() => {
     let randomColor = randomIntegerFromInterval(1, colorsLength);
     bodyRef.style.backgroundColor = colors[randomColor];
-  }, 1000);
+    console.log("start");
+  }, 300);
 });
 
 pauseBtn.addEventListener("click", () => {

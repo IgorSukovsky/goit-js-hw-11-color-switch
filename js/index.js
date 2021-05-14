@@ -11,17 +11,17 @@ const randomIntegerFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-const colorsLength = colors.length;
+const colorsLength = colors.length - 1;
 
 const bodyRef = document.querySelector("body");
 const startBtn = document.querySelector('button[data-action="start"]');
 const pauseBtn = document.querySelector('button[data-action="pause"]');
 const clearBtn = document.querySelector('button[data-action="clear"]');
-let timerColor = null;
+let timerId = null;
 
 startBtn.addEventListener("click", () => {
   startBtn.setAttribute("disabled", "disabled");
-  timerColor = setInterval(() => {
+  timerId = setInterval(() => {
     let randomColor = randomIntegerFromInterval(1, colorsLength);
     bodyRef.style.backgroundColor = colors[randomColor];
     console.log("start");
@@ -29,14 +29,15 @@ startBtn.addEventListener("click", () => {
 });
 
 pauseBtn.addEventListener("click", () => {
-  startBtn.removeAttribute("disabled");
-  clearInterval(timerColor);
-  console.log("pause!");
+  btn();
 });
 
 clearBtn.addEventListener("click", () => {
-  startBtn.removeAttribute("disabled");
-  clearInterval(timerColor);
+  btn();
   bodyRef.style.backgroundColor = "white";
-  console.log("stop!");
 });
+
+const btn = () => {
+  startBtn.removeAttribute("disabled");
+  clearInterval(timerId);
+};
